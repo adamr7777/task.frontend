@@ -6,17 +6,23 @@ import './App.css';
 
 export default function App() {
     const [text, setText] = useState(null);
+    const [anagramsList, setAnagramsList] = useState('');
 
     const sendText = async ()=> {
-        const testURL = 'http://localhost:5000/test';           /*change the url */
+        const testURL = 'http://localhost:5000/getAnagramsList';           /*change the url */
 
         const data = {
             "text": text
         };
 
-        const response = await axios.post(testURL, data);  /*set up try and catch*/
-        // console.log(response.data.message);
-        console.log(text);
+        try {
+            const response = await axios.post(testURL, data); 
+            setAnagramsList(response.data.data);
+            console.log(response.data.data);
+        } catch(err) {
+            console.error(err)
+        };
+
     };
 
     const saveFile = (event)=> {
@@ -37,9 +43,11 @@ export default function App() {
 
     return(
         <>
-            <h1>working!</h1>
-            <input type='file' onChange={saveFile} />
-            <button onClick={sendText}>Get it!</button>
+            <textarea value={anagramsList} readOnly rows='10' cols='50' style={{resize: 'none'}}/>
+            <div>
+                <input type='file' onChange={saveFile} />
+                <button onClick={sendText}>Get it!</button>
+            </div>
         </>
     );
 };
