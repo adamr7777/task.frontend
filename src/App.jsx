@@ -9,7 +9,8 @@ export default function App() {
     const [anagramsList, setAnagramsList] = useState('');
 
     const sendText = async ()=> {
-        const testURL = 'http://localhost:5000/getAnagramsList';           /*change the url */
+        // const testURL = 'http://localhost:5000/getAnagramsList';           /*change the url */
+        const testURL = 'https://task-backend-dmmf.onrender.com/getAnagramsList';           /*change the url */
 
         const data = {
             "text": text
