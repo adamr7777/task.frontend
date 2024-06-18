@@ -41,7 +41,3 @@ If the app is offline, follow these steps to run it locally:
     ```
 
 4. Open the app on `localhost` on the appropriate port (typically specified in the backend and frontend configurations).
-
-## Conclusion
-
-With these steps, you should be able to run the Anagram Arranger app locally and process word lists to arrange anagrams effectively.
