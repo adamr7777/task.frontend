@@ -9,16 +9,15 @@ export default function App() {
     const [text, setText] = useState(null);
     const [anagramsList, setAnagramsList] = useState('');
 
-    const sendText = async ()=> {
-                 
-        const testURL = 'https://task-backend-dmmf.onrender.com/getAnagramsList';         
+    const sendText = async ()=> {          
+        const serverURL = 'https://task-backend-dmmf.onrender.com/getAnagramsList';         
 
         const data = {
             "text": text
         };
 
         try {
-            const response = await axios.post(testURL, data); 
+            const response = await axios.post(serverURL, data); 
             setAnagramsList(response.data.data);
 
         } catch(err) {
