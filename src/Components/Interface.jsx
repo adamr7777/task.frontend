@@ -13,7 +13,7 @@ export default function Interface({anagramsList, saveFile, sendText, clearScreen
           style={{ resize: 'none' }}
           className="interface-textarea"
         />
-        <button onClick={clearScreen} className='clear-button'>Clear the screen</button>
+        <button onClick={clearScreen} className='clear-button'>Clear the Screen</button>
       </div>
       <div className='interface-container'>
         <label className='file-label'>

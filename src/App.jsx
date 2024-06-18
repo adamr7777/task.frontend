@@ -6,11 +6,11 @@ import Interface from './Components/Interface';
 
 
 export default function App() {
-    const [text, setText] = useState(null);
+    const [text, setText] = useState('');
     const [anagramsList, setAnagramsList] = useState('');
 
     const sendText = async ()=> {          
-        const serverURL = 'https://task-backend-dmmf.onrender.com/getAnagramsList';         
+        const serverURL = 'https://task-backend-dmmf.onrender.com/getAnagramsList';                  
 
         const data = {
             "text": text
