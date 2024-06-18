@@ -42,12 +42,15 @@ export default function App() {
         };
     };
 
+    const clearScreen = ()=> setAnagramsList('');
+
     return(
         <div className='app-background'>
             <Interface 
                 saveFile={saveFile}
                 sendText={sendText}
                 anagramsList={anagramsList}
+                clearScreen={clearScreen}
             />
         </div>
     );

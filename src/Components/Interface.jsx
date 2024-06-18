@@ -1,17 +1,20 @@
 import React from 'react';
 import './Interface.css'; 
 
-export default function Interface({anagramsList, saveFile, sendText}) {
+export default function Interface({anagramsList, saveFile, sendText, clearScreen}) {
   return (
     <div className='interface-wrapper'>
-      <textarea
-        value={anagramsList}
-        readOnly
-        rows='10'
-        cols='50'
-        style={{ resize: 'none' }}
-        className="interface-textarea"
-      />
+      <div className='textarea-container'>
+        <textarea
+          value={anagramsList}
+          readOnly
+          rows='10'
+          cols='50'
+          style={{ resize: 'none' }}
+          className="interface-textarea"
+        />
+        <button onClick={clearScreen} className='clear-button'>Clear the screen</button>
+      </div>
       <div className='interface-container'>
         <label className='file-label'>
           <input type='file' onChange={saveFile} className='interface-input' />
