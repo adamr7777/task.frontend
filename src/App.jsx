@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import axios from 'axios';
 
 import './App.css';
+import Interface from './Components/Interface';
 
 
 export default function App() {
@@ -9,8 +10,8 @@ export default function App() {
     const [anagramsList, setAnagramsList] = useState('');
 
     const sendText = async ()=> {
-        // const testURL = 'http://localhost:5000/getAnagramsList';           /*change the url */
-        const testURL = 'https://task-backend-dmmf.onrender.com/getAnagramsList';           /*change the url */
+                 
+        const testURL = 'https://task-backend-dmmf.onrender.com/getAnagramsList';         
 
         const data = {
             "text": text
@@ -19,7 +20,7 @@ export default function App() {
         try {
             const response = await axios.post(testURL, data); 
             setAnagramsList(response.data.data);
-            console.log(response.data.data);
+
         } catch(err) {
             console.error(err)
         };
@@ -38,17 +39,17 @@ export default function App() {
             fileReader.readAsText(inputFile);
 
         } catch(err) {
-            console.log(`The problem: ${err}`);
+            console.error(`The problem: ${err}`);
         };
     };
 
     return(
-        <>
-            <textarea value={anagramsList} readOnly rows='10' cols='50' style={{resize: 'none'}}/>
-            <div>
-                <input type='file' onChange={saveFile} />
-                <button onClick={sendText}>Get it!</button>
-            </div>
-        </>
+        <div className='app-background'>
+            <Interface 
+                saveFile={saveFile}
+                sendText={sendText}
+                anagramsList={anagramsList}
+            />
+        </div>
     );
 };
